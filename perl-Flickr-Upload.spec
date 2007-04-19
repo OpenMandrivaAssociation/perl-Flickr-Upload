@@ -1,7 +1,7 @@
 %define name perl-Flickr-Upload
 %define pkgname Flickr-Upload
-%define version 1.22
-%define release 2mdk
+%define version 1.25
+%define release %mkrel 1
 
 Summary:	Upload images to flickr.com
 Name:		%{name}
