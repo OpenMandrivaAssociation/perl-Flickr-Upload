@@ -1,6 +1,6 @@
 %define name perl-Flickr-Upload
 %define pkgname Flickr-Upload
-%define version 1.25
+%define version 1.28
 %define release %mkrel 1
 
 Summary:	Upload images to flickr.com
@@ -9,7 +9,7 @@ Version:	%{version}
 Release:	%{release}
 License:	GPL or Artistic
 Group:		Development/Perl
-Source:		http://search.cpan.org/CPAN/authors/id/C/CP/CPB/%{pkgname}-%{version}.tar.bz2
+Source:		http://search.cpan.org/CPAN/authors/id/C/CP/CPB/%{pkgname}-%{version}.tar.gz
 Url:		http://search.cpan.org/dist/%{pkgname}/
 BuildRequires:	perl-devel perl-XML-Parser-Lite-Tree perl-Flickr-API perl-libwww-perl
 BuildArch:	noarch
