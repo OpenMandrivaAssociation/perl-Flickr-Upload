@@ -1,6 +1,6 @@
-%define name perl-Flickr-Upload
-%define pkgname Flickr-Upload
-%define version 1.28
+%define module  Flickr-Upload
+%define name    perl-%{module}
+%define version 1.29
 %define release %mkrel 1
 
 Summary:	Upload images to flickr.com
@@ -9,37 +9,40 @@ Version:	%{version}
 Release:	%{release}
 License:	GPL or Artistic
 Group:		Development/Perl
-Source:		http://search.cpan.org/CPAN/authors/id/C/CP/CPB/%{pkgname}-%{version}.tar.gz
-Url:		http://search.cpan.org/dist/%{pkgname}/
-BuildRequires:	perl-devel perl-XML-Parser-Lite-Tree perl-Flickr-API perl-libwww-perl
+Url:		http://search.cpan.org/dist/%{module}/
+Source:     http://www.cpan.org/modules/by-module/Flick/%{module}-%{version}.tar.bz2
+BuildRequires:	perl-XML-Parser-Lite-Tree
+BuildRequires:	perl-Flickr-API
+BuildRequires:	perl-libwww-perl
 BuildArch:	noarch
-BuildRoot:	%{_tmppath}/%{name}-buildroot/
-Requires:	perl
+BuildRoot:	%{_tmppath}/%{name}-%{version}
 
 %description
 Upload an image to flickr.com
 
 %prep
-%setup -q -n %{pkgname}-%{version}
+%setup -q -n %{module}-%{version}
 
 %build
 %{__perl} Makefile.PL INSTALLDIRS=vendor
-make
+%make
+
+%check
 make test
 
 %install
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 %makeinstall_std
 # Should be in a new package as it requires additionnal libs
-rm -f $RPM_BUILD_ROOT%{_bindir}/thickr_upload
+rm -f %{buildroot}%{_bindir}/thickr_upload
 
 %clean 
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root)
 %doc README ChangeLog 
-%{perl_vendorlib}/
+%{perl_vendorlib}/Flickr
+%{perl_vendorlib}/auto/Flickr
 %{_mandir}/*/*
 %{_bindir}/flickr_upload
-
