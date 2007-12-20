@@ -15,6 +15,7 @@ BuildRequires:	perl-XML-Parser-Lite-Tree
 BuildRequires:	perl-Flickr-API
 BuildRequires:	perl-libwww-perl
 BuildArch:	noarch
+BuildRoot:	%{_tmppath}/%{name}-%{version}
 
 %description
 Upload an image to flickr.com
