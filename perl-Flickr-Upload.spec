@@ -1,7 +1,7 @@
 %define module  Flickr-Upload
 %define name    perl-%{module}
 %define version 1.29
-%define release %mkrel 2
+%define release %mkrel 3
 
 Summary:	Upload images to flickr.com
 Name:		%{name}
@@ -11,6 +11,7 @@ License:	GPL or Artistic
 Group:		Development/Perl
 Url:		http://search.cpan.org/dist/%{module}/
 Source:     http://www.cpan.org/modules/by-module/Flick/%{module}-%{version}.tar.bz2
+Patch0:		Flickr-Upload-1.28-gzipped-response.patch
 BuildRequires:	perl-XML-Parser-Lite-Tree
 BuildRequires:	perl-Flickr-API
 BuildRequires:	perl-libwww-perl
@@ -22,6 +23,7 @@ Upload an image to flickr.com
 
 %prep
 %setup -q -n %{module}-%{version}
+%patch0 -p0
 
 %build
 %{__perl} Makefile.PL INSTALLDIRS=vendor
