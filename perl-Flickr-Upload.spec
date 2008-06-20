@@ -1,6 +1,6 @@
 %define module  Flickr-Upload
 %define name    perl-%{module}
-%define version 1.30
+%define version 1.31
 %define release %mkrel 1
 
 Summary:	Upload images to flickr.com
@@ -43,6 +43,5 @@ rm -rf %{buildroot}
 %defattr(-,root,root)
 %doc README ChangeLog 
 %{perl_vendorlib}/Flickr
-%{perl_vendorlib}/auto/Flickr
 %{_mandir}/*/*
 %{_bindir}/flickr_upload
