@@ -1,6 +1,6 @@
 %define module  Flickr-Upload
 %define name    perl-%{module}
-%define version 1.31
+%define version 1.32
 %define release %mkrel 1
 
 Summary:	Upload images to flickr.com
